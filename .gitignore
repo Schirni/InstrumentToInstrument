@@ -49,6 +49,9 @@ cmake-build-*/
 # File-based project format
 *.iws
 
+# Sphinx documentation
+docs/_build/
+
 # IntelliJ
 out/
 
