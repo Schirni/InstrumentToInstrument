@@ -13,10 +13,10 @@ Welcome to Instrument-To-Instrument's documentation!
    pages/introduction
 
 
-Indices and tables
+Links
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
-
+* Translate your own data: https://colab.research.google.com/github/RobertJaro/InstrumentToInstrument/blob/master/examples/ITI_translation.ipynb
+* GPU support: https://pytorch.org/get-started/locally/
