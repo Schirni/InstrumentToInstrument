@@ -5,6 +5,9 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import os
+import sys
+import sphinx_rtd_theme
 
 project = 'Instrument-To-Instrument'
 copyright = '2024, Christoph Schirninger, Robert Jarolim, J. Emmanuel Johnson, Anna Jungbluth, Lilli Freischem, Anne Spalding'
@@ -27,5 +30,5 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 #html_theme = 'alabaster'
-html_theme = 'sphinx_rtd_theme'
+html_theme = "sphinx_rtd_theme"
 html_static_path = ['_static']
