@@ -11,7 +11,7 @@ setup(
     author='Robert Jarolim',
     description='Package for translation between image domains of different astrophysical instruments.',
     install_requires=['torch>=1.8', 'sunpy>=2.0', 'scikit-image', 'scikit-learn', 'tqdm',
-                      'numpy', 'matplotlib', 'astropy', 'aiapy','drms'],
+                      'numpy', 'matplotlib', 'astropy', 'aiapy','drms', 'sphinx', 'sphinx_rtd_theme'],
     classifiers=[
     'Development Status :: 3 - Alpha', # either "3 - Alpha", "4 - Beta" or "5 - Production/Stable"
     'License :: OSI Approved :: GPL-3.0 License',
