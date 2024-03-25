@@ -13,7 +13,7 @@ in order to inter-calibrate data sets, enhance physically relevant features whic
 limit of the telescope, mitigate atmospheric degradation effects and can estimate observables that are not covered by the instrument.
 We demonstrate that our method can provide unified long-term data sets at the highest quality, by applying it to
 five different applications of ground- and space-based solar observations.
-We obtain
+We obtain:
 1. a homogeneous data series of 24 years of space-based observations of the solar corona,
 #. solar full-disk observations with unprecedented spatial resolution,
 #. real-time mitigation of atmospheric degradations in ground-based observations,
