@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to Instrument-To-Instrument's tool documentation!
-====================================================
+=========================================================
 
 .. toctree::
    :maxdepth: 2
