@@ -12,6 +12,7 @@ import pandas as pd
 from astropy.io import fits
 from sunpy.io._fits import header_to_fits
 from sunpy.util import MetaDict
+from astropy import units as u
 
 
 class SDODownloader:
@@ -24,13 +25,14 @@ class SDODownloader:
         wavelengths (list): List of wavelengths to download.
         n_workers (int): Number of worker threads for parallel download.
     """
-    def __init__(self, base_path, email, wavelengths=['131', '171', '193', '211', '304', '335'], n_workers=5):
+    def __init__(self, base_path, email, wavelengths=['131', '171', '193', '211', '304', '335'], n_workers=5, cadence=60):
         self.ds_path = base_path
         self.wavelengths = [str(wl) for wl in wavelengths]
         self.n_workers = n_workers
         #[os.makedirs(os.path.join(base_path, wl), exist_ok=True) for wl in self.wavelengths + ['6173']]
         [os.makedirs(os.path.join(base_path, wl), exist_ok=True) for wl in self.wavelengths]
         self.drms_client = drms.Client(email=email, verbose=False)
+        self.cadence = cadence
 
     def download(self, sample):
         """
@@ -185,11 +187,13 @@ if __name__ == '__main__':
     parser.add_argument('--start_date', type=str, help='start date in format YYYY-MM-DD.')
     parser.add_argument('--end_date', type=str, help='end date in format YYYY-MM-DD.', required=False,
                         default=str(datetime.now()).split(' ')[0])
+    parser.add_argument('--cadence', type=int, help='cadence in minutes.', required=False, default=60)
 
     args = parser.parse_args()
     download_dir = args.download_dir
     start_date = args.start_date
     end_date = args.end_date
+    cadence = args.cadence
     #download_dir = '/Users/christophschirninger/PycharmProjects/MDRAIT_ITI'
 
     [os.makedirs(os.path.join(download_dir, str(c)), exist_ok=True) for c in [131, 171, 193, 211, 304, 335]]
@@ -197,6 +201,6 @@ if __name__ == '__main__':
     start_date_datetime = datetime.strptime(start_date, "%Y-%m-%d")
     #end_date = datetime.now()
     end_date_datetime = datetime.strptime(end_date, "%Y-%m-%d")
-    for d in [start_date_datetime + i * timedelta(days=1) for i in
-              range((end_date_datetime - start_date_datetime) // timedelta(days=1))]:
+    for d in [start_date_datetime + i * timedelta(minutes= cadence * u.minute) for i in
+              range((end_date_datetime - start_date_datetime) // timedelta(minutes=cadence * u.minute))]:
         downloader.downloadDate(d)
