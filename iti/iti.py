@@ -114,7 +114,7 @@ class ITIModule(LightningModule):
         return gen_opt, dis_opt
 
     def training_step(self, batch):
-        if self.global_step > 100000:  # fix running stats
+        if self.global_step > 200000:  # fix running stats
             self.gen_ab.eval()
             self.gen_ba.eval()
         x_a, x_b = batch['dis_A'], batch['dis_B']
